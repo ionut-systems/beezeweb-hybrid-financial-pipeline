@@ -1,0 +1,12 @@
+# Dossiers de compilation PyInstaller
+build/
+dist/
+__pycache__/
+*.spec
+
+# Binaires et bibliothèques locales Windows
+*.exe
+*.dll
+
+# Rapports générés dynamiquement
+rapport_financier.csv
