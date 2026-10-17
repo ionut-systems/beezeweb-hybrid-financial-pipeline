@@ -3,7 +3,7 @@
 ## 🏛️ Vue d'ensemble de l'Architecture
 Ce projet met en œuvre un pipeline de données hybride et sécurisé, combinant la puissance de calcul historique et la stricte intégrité de **GnuCOBOL** avec l'agilité d'orchestration moderne de **Python**. 
 
-L'objectif est d'éliminer les risques de corruption des données financières en isolant le moteur de calcul (Backend batch) du superviseur d'analyse (Front-end/Reporting).
+L'objectif est d'éliminer les risques de corruption des données financières en isolant le moteur de calcul (Backend batch) du superviseur d'analyse (Front-end / Reporting).
 
 ---
 
@@ -23,15 +23,12 @@ L'objectif est d'éliminer les risques de corruption des données financières e
    * Interception du flux de sortie standard (`stdout`) en mode furtif.
    * Analyse syntaxique par **Expressions Régulières (Regex)** pour extraire chirurgicalement le capital total calculé par le mainframe.
    * Exportation automatisée des données financières au format **CSV** normalisé, horodaté et prêt à l'emploi pour les ERP.
+
 4. **L'Interface Graphique Superviseur (`gui_beezeweb.py`) :**
    * Application de bureau construite avec **Tkinter** (architecture événementielle).
    * Exécution silencieuse du sous-processus COBOL (`CREATE_NO_WINDOW`) sans ouverture de console parasite.
    * Tableau de bord temps réel et génération automatisée du reporting CSV en un clic.
 
-### 4. Compilation de l'Interface Graphique (Zéro Console)
-Pour générer l'application de bureau autonome sans terminal d'arrière-plan :
-```bash
-pyinstaller --onefile --noconsole gui_beezeweb.py
 ---
 
 ## 🚀 Guide d'Utilisation et Compilation
@@ -40,3 +37,25 @@ pyinstaller --onefile --noconsole gui_beezeweb.py
 Pour compiler le code source du traitement par lots en un exécutable statique sans dépendances :
 ```bash
 cobc -x -static batch_process.cob
+```
+
+### 2. Exécution du Superviseur Python (CLI)
+Pour lancer l'orchestrateur en console, capturer les flux du mainframe et générer le rapport financier :
+```bash
+python bridge.py
+```
+
+### 3. Packaging du Superviseur CLI (Standalone)
+Pour compiler le superviseur console en un exécutable autonome via PyInstaller :
+```bash
+pyinstaller --onefile bridge.py
+```
+
+### 4. Compilation de l'Interface Graphique (Zéro Console)
+Pour générer l'application de bureau autonome (GUI) sans terminal d'arrière-plan :
+```bash
+pyinstaller --onefile --noconsole gui_beezeweb.py
+```
+
+---
+*Développé dans le cadre des infrastructures d'ingénierie de Beezeweb.*
